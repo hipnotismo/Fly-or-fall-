@@ -2,17 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class Spawner : MonoBehaviour{
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public GameObject obstacle;
+
+    private float timeBtwSpawn;
+    public float starTimeBtwSpawn;
+    public float decreaseTime;
+    public float minTime = 0.65f;
+
+    private void Update(){
+        if (timeBtwSpawn <= 0)
+        {
+            Instantiate(obstacle, transform.position, Quaternion.identity);
+            timeBtwSpawn = starTimeBtwSpawn;
+            if(starTimeBtwSpawn > minTime)
+            {
+                starTimeBtwSpawn -= decreaseTime;
+
+            }
+        }
+        else
+        {
+            timeBtwSpawn -= Time.deltaTime;
+        }
     }
 }
