@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour{
 
@@ -14,7 +15,11 @@ public class Player : MonoBehaviour{
 
     public int health = 3;
 
+    public Text healthDisplay;
+
     private void Update() {
+
+        healthDisplay.text = health.ToString();
 
         if (health <= 0)
         {
