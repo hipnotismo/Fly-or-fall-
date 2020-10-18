@@ -12,18 +12,18 @@ public class Spawner : MonoBehaviour{
     public float minTime = 0.65f;
 
     private void Update(){
-        if (timeBtwSpawn <= 0)
-        {
+        if (timeBtwSpawn <= 0){
+
             int rand = Random.Range(0, obstaclePatterns.Length);
             Instantiate(obstaclePatterns[rand], transform.position, Quaternion.identity);
             timeBtwSpawn = startTimeBtwSpawns;
-            if (startTimeBtwSpawns > minTime)
-            {
+            if (startTimeBtwSpawns > minTime){
+
                 startTimeBtwSpawns -= decreaseTime;
             }
         }
-        else
-        {
+        else{
+
             timeBtwSpawn -= Time.deltaTime;
         }
     }
