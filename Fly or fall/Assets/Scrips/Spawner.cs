@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour{
 
-    public GameObject obstacle;
+    public GameObject[] obstaclePatterns;
 
     private float timeBtwSpawn;
-    public float starTimeBtwSpawn;
+    public float startTimeBtwSpawns;
     public float decreaseTime;
     public float minTime = 0.65f;
 
     private void Update(){
         if (timeBtwSpawn <= 0)
         {
-            Instantiate(obstacle, transform.position, Quaternion.identity);
-            timeBtwSpawn = starTimeBtwSpawn;
-            if(starTimeBtwSpawn > minTime)
+            int rand = Random.Range(0, obstaclePatterns.Length);
+            Instantiate(obstaclePatterns[rand], transform.position, Quaternion.identity);
+            timeBtwSpawn = startTimeBtwSpawns;
+            if (startTimeBtwSpawns > minTime)
             {
-                starTimeBtwSpawn -= decreaseTime;
-
+                startTimeBtwSpawns -= decreaseTime;
             }
         }
         else
