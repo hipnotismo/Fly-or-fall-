@@ -12,6 +12,13 @@ public class MenuManager : MonoBehaviour
        Debug.Log("Play with 1 player");
 
     }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+        Debug.Log("Credits");
+
+    }
 }
 
 
