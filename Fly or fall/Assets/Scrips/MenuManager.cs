@@ -9,15 +9,24 @@ public class MenuManager : MonoBehaviour
    public void PlayGame()
     {
        SceneManager.LoadScene("Game");
-       Debug.Log("Play with 1 player");
 
     }
 
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
-        Debug.Log("Credits");
 
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 }
 
