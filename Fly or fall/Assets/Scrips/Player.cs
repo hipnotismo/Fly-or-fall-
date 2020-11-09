@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour{
 
-    private Vector2 targetPos;
+    private Vector2 targetPos ;
     public float yIncrement;
 
     public float speed;
@@ -17,6 +17,10 @@ public class Player : MonoBehaviour{
 
     public Text healthDisplay;
 
+    public void Start()
+    {
+        targetPos = new Vector2(-6,0);
+    }
 
     private void Update() {
 
@@ -28,13 +32,24 @@ public class Player : MonoBehaviour{
         }
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight) {
+     
+    }
+
+    public void UP()
+    {
+
+        if ( transform.position.y < maxHeight)
+        {
             targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight) {
+    }
+
+    public void DOWN()
+    {
+        if ( transform.position.y > minHeight)
+        {
             targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
 
         }
     }
-
 }
