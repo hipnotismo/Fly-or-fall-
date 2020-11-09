@@ -17,6 +17,7 @@ public class Player : MonoBehaviour{
 
     public Text healthDisplay;
 
+
     private void Update() {
 
         healthDisplay.text = health.ToString();
