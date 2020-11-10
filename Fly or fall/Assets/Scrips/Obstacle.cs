@@ -16,7 +16,8 @@ public class Obstacle : MonoBehaviour{
         if (other.CompareTag("Player")){
 
             other.GetComponent<Player>().health -= damage;
-            Debug.Log(other.GetComponent<Player>().health);
+            Vibrator.Vibrate();
+           // Debug.Log(other.GetComponent<Player>().health);
             Destroy(gameObject);
         }
     }
